@@ -50,28 +50,27 @@
             <div class="price">Price: <span class="price-new">INR <%= @product.price %></span> <br />
             </div>
             
-            </div>
-            <div class="cart">
-              <div>
+          </div>
+          
+          <div class="cart">
+            <div>
+              <div class="qty"> 
+                <%= form_for @line_item do |f| %>
+                  <strong>Qty:</strong>
+                    <a class="qtyBtn mines" href="javascript:void(0);">-</a>
+                    <%= f.text_field :quantity, class: "w30", value: 1, size: 2, id: "qty" %>
 
-
-                <div class="qty"> 
-                  <%= form_for @line_item do |f| %>
-                    <strong>Qty:</strong>
-                      <a class="qtyBtn mines" href="javascript:void(0);">-</a>
-                      <%= f.text_field :quantity, class: "w30", value: 1, size: 2, id: "qty" %>
-
-                    <a class="qtyBtn plus" href="javascript:void(0);">+</a> 
-                 
+                  <a class="qtyBtn plus" href="javascript:void(0);">+</a> 
+               
                   <div class="clear"></div>
-                </div>
+              </div>
 
-                  <%= f.hidden_field :product_id, value: @product.id %>
-                  <%= f.hidden_field :price, value: @product.price %>   
-                <%= f.submit "Add To Cart", class: "button" %>
+                <%= f.hidden_field :product_id, value: @product.id %>
+                <%= f.hidden_field :price, value: @product.price %>   
+              <%= f.submit "Add To Cart", class: "button" %>
 
                 <% end %>
-              </div>
+            </div>
 
 
               <div>

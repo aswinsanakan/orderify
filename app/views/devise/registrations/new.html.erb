@@ -21,6 +21,19 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <h3>Shipping Details</h3>
+  <% addresses = resource.addresses.build %>
+  <%= f.fields_for :addresses do |address_form| %>
+    <%= address_form.label :city %>
+    <%= address_form.text_field :city %> <br>
+
+    <%= address_form.label :street %>
+    <%= address_form.text_field :street %> <br>
+
+    <%= address_form.label :pincode %>
+    <%= address_form.text_field :pincode %> <br>
+  <%end%>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

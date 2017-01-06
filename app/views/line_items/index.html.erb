@@ -13,7 +13,7 @@
 <!--Breadcrumb Part Start-->
         <div class="breadcrumb"> <a href="index.html">Home</a> » <a href="">Shopping Cart</a></div>
         <!--Breadcrumb Part End-->
-        <h1>Shopping Cart &nbsp;(11.00kg)</h1>
+        <h1>Shopping Cart (INR <%= current_user.line_items.sum(:total).round(2) %>)</h1>
         <form enctype="multipart/form-data" method="post" action="">
           <div class="cart-info">
             <table>
@@ -29,7 +29,7 @@
               </thead>
               <tbody>
               
-              <% @line_items.each do |line_item| %>
+              <% @current_user.line_items.each do |line_item| %>
                 <tr>
                     <td class="image"><a href="<%= product_path(line_item.product) %>"><img src="../image/product/ipod_classic_1-45x45.jpg" alt="iPad Classic" /></a></td>
                     <td class="name"><a href="<%= product_path(line_item.product) %>"><%= line_item.product.name.capitalize %></a></td>
@@ -94,8 +94,7 @@
             <tbody>
              
               <tr>
-                <td class="right"><b>Total:</b></td>
-                <td class="right">INR <%= sum %></td>
+                <td class="right"><b>Total: INR <%= current_user.line_items.sum(:total).round(2) %></b></td>
               </tr>
             </tbody>
           </table>

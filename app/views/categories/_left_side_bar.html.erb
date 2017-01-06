@@ -33,23 +33,43 @@
           <div class="box-heading">Refine Search</div>
           <div class="box-content">
             <ul class="box-filter">
+              <%= form_tag(category_path(@category),method: "get", class: "form-inline") do %>
+                <li><span id="filter-group">Price</span>
+                <% prices = [] %>
+                <ul>
+                  <li>
+                    <%= check_box_tag 'prices[]', value: "1" %>
+                    <label for="filter3">INR 0 - INR 10</label>
+                  </li>
+                  <li>
+                    <label for="filter3">INR 10 - INR 50</label>
+                  </li>
+                  <li>
+                    <label for="filter3">INR 50 - INR 100</label>
+                  </li>
+                  <li>
+                    <label for="filter3">INR 100 - INR 150</label>
+                  </li>
+                </ul>
+                </li>
+              <%end%>
               <li><span id="filter-group">Price</span>
                 <ul>
                   <li>
                     <input type="checkbox" value="3" id="filter3" />
-                    <label for="filter3">$0 - $100 (1)</label>
+                    <label for="filter3">INR 0 - INR 10</label>
                   </li>
                   <li>
                     <input type="checkbox" value="4" id="filter4" />
-                    <label for="filter4">$100 - $500 (5)</label>
+                    <label for="filter4">INR 10 - INR 50</label>
                   </li>
                   <li>
                     <input type="checkbox" value="5" id="filter5" />
-                    <label for="filter5">$500 - $1000 (1)</label>
+                    <label for="filter5">INR 50 - INR 100</label>
                   </li>
                   <li>
                     <input type="checkbox" value="6" id="filter6" />
-                    <label for="filter6">$1000 - $1500 (0)</label>
+                    <label for="filter6">INR 100 - INR 150</label>
                   </li>
                 </ul>
               </li>

@@ -4,4 +4,6 @@ class Product < ActiveRecord::Base
 	has_many :recent_views
 	belongs_to :category
 	belongs_to :sub_category
+
+	
 end

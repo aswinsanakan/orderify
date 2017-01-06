@@ -1,7 +1,7 @@
 <!--Middle Part Start-->
       <div id="content">
         <!--Breadcrumb Part Start-->
-        <div class="breadcrumb"> <a href="/">Home</a> &raquo; <a href=""><%= @category.name.capitalize %></a> &raquo; <a href=""><%= @sub_category.name.capitalize %></a> </div>
+        <div class="breadcrumb"> <a href="/">Home</a> &raquo; <a href="<%= category_path(@category) %>"><%= @category.name.capitalize %></a> &raquo; <a href=""><%= @sub_category.name.capitalize %></a> </div>
         <!--Breadcrumb Part End-->
         <h1><%= @sub_category.name.capitalize %></h1>
 
